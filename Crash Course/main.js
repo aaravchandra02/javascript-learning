@@ -1,0 +1,1 @@
+alert("Hello World is such a thing of the past! ;)\n")
