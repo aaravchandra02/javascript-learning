@@ -191,3 +191,41 @@ things_to_do_Completed_work = things_to_do.filter(function (x) {
   return x.work;
 });
 console.log(things_to_do_Completed_work)
+
+
+
+/* Conditionals 
+
+'==' only checks value
+'===' check datatypes as well
+*/
+
+const x = '10';
+if (x == 10) {
+  console.log(`${x} is equal to int 10 as == doesn't check for datatype\n`)
+}
+else if (x === 10) {
+  console.log(`${x} is equal to string 10 as '===' checks if the datatype is also similar.`)
+}
+else {
+  console.log('Values are not similar, let alone datatypes.')
+}
+
+
+// Ternary operator ?=if :=else
+
+const x1 = 10;
+const color = x1 > 10 ? "red" : "blue";
+console.log(color)
+
+// switch
+
+switch (color) {
+  case 'red':
+    console.log('It\'s Red')
+    break;
+  default:
+    console.log('It\'s not red')
+    break
+}
+
