@@ -222,10 +222,93 @@ console.log(color)
 
 switch (color) {
   case 'red':
-    console.log('It\'s Red')
+    console.log('It\'s Red');
     break;
   default:
-    console.log('It\'s not red')
+    console.log('It\'s not red');
     break
+};
+
+
+
+/* Functions */
+
+// here also default values can be set as shown below
+function multiplyNumbers(num1 = 1, num2 = 1) {
+  console.log(num1 + num2);
 }
+multiplyNumbers(5, 3);
+multiplyNumbers()
+
+// function without arrow:
+function addNums(num1 = 1, num2 = 2) {
+  return num1 + num2;
+}
+console.log(addNums(12, 1));
+
+// arrow functions of the aboce addNums function is:
+const addNums2 = (num1 = 1, num2 = 2) => {
+  return num1 + num2;
+}
+console.log(addNums2(12, 1));
+
+//shorthand of arrow function:
+const addNums3 = (nums1 = 1, nums2 = 2) => nums1 + nums2;
+console.log(addNums3(2, 4))
+
+
+
+/* Object Oriented Programming */
+
+// Constructor fn - the function name should start with capital letter.
+function ModeofTransport(name, price, time_taken, next_dept_date) {
+  this.name = name;
+  this.price = price;
+  this.time_taken = time_taken;
+  this.next_dept = new Date(next_dept_date)
+  // It can have other fn within itself.
+  this.day_of_week = function () {
+    return this.next_dept.getDay();
+  }
+};
+// Instantiating the object
+const bus1 = new ModeofTransport('Volvo', '$56', '3 hrs', '8-17-2020');
+console.log(bus1.next_dept, bus1.day_of_week())
+
+
+// having functions and property together is not a good thing, thus we use a prototype.
+function ModeofTransport1(name, price, time_taken, next_dept_date) {
+  this.name = name;
+  this.price = price;
+  this.time_taken = time_taken;
+  this.next_dept = new Date(next_dept_date)
+  // It can have other fn within itself.
+};
+ModeofTransport1.prototype.day_of_week = function () {
+  return this.next_dept.getDay();
+};
+// Instantiating the object - fn will be in _proto_
+const bus2 = new ModeofTransport1('Volvo', '$56', '3 hrs', '8-17-2020');
+console.log(bus2)
+
+
+/* Classes */
+class Person {
+  constructor(fname, lname, dob) {
+    this.fname = fname;
+    this.lname = lname;
+    this.dob = new Date(dob);
+  };
+  getBirthYear() {
+    return this.dob.getFullYear();
+  };
+  getFullName() {
+    return `${this.fname} ${this.lname}`;
+  };
+}
+
+const person11 = new Person("Tom", "Dickens", "9-14-1976")
+console.log(person11.getFullName())
+
+
 
