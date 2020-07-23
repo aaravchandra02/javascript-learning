@@ -143,3 +143,25 @@ things_to_do_JSON = JSON.stringify(things_to_do)
 console.log(things_to_do_JSON)
 
 /* Looping */
+
+// For loop:
+for (let i = 0; i <= 5; i++) {
+  console.log(`${fname} - ${i}\n`);
+};
+
+for (let i = 0; i < things_to_do.length; i++) {
+  console.log(`For loop - ${things_to_do[i].work} \n`);
+};
+
+// For of loop:
+for (single_item of things_to_do) {
+  console.log(single_item)
+}
+
+// While loop:
+let i = 0;
+while (i < 5) {
+  console.log(`${lname} - ${i} `)
+  i += 1
+};
+
