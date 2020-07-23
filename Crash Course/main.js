@@ -108,7 +108,7 @@ const things_to_do = [
   {
     id: 1,
     work: 'take out trash',
-    statusCompleted: true
+    statusCompleted: false
   },
   {
     id: 2,
@@ -123,7 +123,7 @@ const things_to_do = [
   {
     id: 4,
     work: 'Go for run',
-    statusCompleted: true
+    statusCompleted: false
   },
   {
     id: 5,
@@ -154,7 +154,7 @@ for (let i = 0; i < things_to_do.length; i++) {
 };
 
 // For of loop:
-for (single_item of things_to_do) {
+for (let single_item of things_to_do) {
   console.log(single_item)
 }
 
@@ -165,3 +165,29 @@ while (i < 5) {
   i += 1
 };
 
+/* High Order Array Method -  It is the highly suggested method for iteration over arrays */
+
+// forEach
+things_to_do.forEach(function (x) {
+  console.log(x.id);
+});
+
+// map ---> returns an array = used to get values.
+things_to_do_Ids = things_to_do.map(function (x) {
+  return (x.work);
+});
+console.log(things_to_do_Ids)
+
+// filter ---> returns an array that is filtered based on a given condition = used to get values.
+things_to_do_Completed = things_to_do.filter(function (x) {
+  return x.statusCompleted === true;
+});
+console.log(things_to_do_Completed)
+
+// chaining is possible for desired --> only returns completed work.
+things_to_do_Completed_work = things_to_do.filter(function (x) {
+  return x.statusCompleted === true;
+}).map(function (x) {
+  return x.work;
+});
+console.log(things_to_do_Completed_work)
