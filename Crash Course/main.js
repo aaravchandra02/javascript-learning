@@ -3,6 +3,8 @@ console.log("This prints in the Web-browser's console")
 console.error("This return error statement in the console")
 console.warn("This gives a warning in the console")
 
+
+
 // Variables using var,const,let
 /* 'var' is globally scoped and hence not to be preferrably used.
    'let' and 'const' have block level scope.
@@ -15,6 +17,8 @@ console.log(a)
 const b = 331
 // b += 1 ---> This cannot be done we cannot change a constant.
 console.log(b)
+
+
 
 // Primitive Data-types: TypeScript is a part of JS with static typing while JS doesn't have it.
 // string, number, boolean, null, undefined, symbol
@@ -36,6 +40,8 @@ console.log(typeof null1); // return 'object' which is bogus.
 console.log(typeof undefined1);
 console.log(typeof undefined2);
 
+
+
 /* Strings */
 
 const name = "Aarav Chandra"
@@ -54,6 +60,8 @@ console.log(name.substring(0, 5)); // not including 5
 console.log(name.substring(5).toUpperCase()); // from index 5 till end.
 console.log(name.split('')); // it splits by letters and returns array with char values.
 
+
+
 /* Arrays */
 
 const array1 = new Array(1, 2, 3, 4, 5, 6, 7);
@@ -70,6 +78,8 @@ console.log(fruits1)
 console.log(Array.isArray(fruits1)) // checks if this is an array.
 console.log(fruits1.indexOf('lichi'))
 
+
+
 /* Object Literals = key:value pairs */
 
 const person1 = {
@@ -84,6 +94,52 @@ const person1 = {
 console.log(person1.address.france);
 console.log(person1.address.india, person1.superpower[0]);
 
-// Destructuring allows us to pull variable(s)
-const { fname, lname } = person1; // It not assigning but more like pulling these values from 'person'.
-console.log()
+// Destructuring allows us to pull variable(s) and make them independent.
+const { fname, lname, address: { india } } = person1; // It not assigning but more like pulling these values from 'person'.
+console.log(lname, "\n", india)
+
+// Adding property to an onject literal
+person1.email = 'abc@XYZ.com';
+console.log(person1);
+
+// Arrays of Objects
+
+const things_to_do = [
+  {
+    id: 1,
+    work: 'take out trash',
+    statusCompleted: true
+  },
+  {
+    id: 2,
+    work: 'Meditate',
+    statusCompleted: true
+  },
+  {
+    id: 3,
+    work: 'Practice guitar',
+    statusCompleted: true
+  },
+  {
+    id: 4,
+    work: 'Go for run',
+    statusCompleted: true
+  },
+  {
+    id: 5,
+    work: 'Cook food',
+    statusCompleted: true
+  },
+];
+
+console.log(things_to_do)
+console.log(things_to_do[2].work)
+
+
+
+/* JSON */
+
+things_to_do_JSON = JSON.stringify(things_to_do)
+console.log(things_to_do_JSON)
+
+/* Looping */
