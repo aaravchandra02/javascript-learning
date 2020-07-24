@@ -256,6 +256,8 @@ console.log(addNums2(12, 1));
 const addNums3 = (nums1 = 1, nums2 = 2) => nums1 + nums2;
 console.log(addNums3(2, 4))
 
+const addNums4 = nums1 => nums1 + 5;
+console.log(addNums3(2));
 
 
 /* Object Oriented Programming */
@@ -292,6 +294,8 @@ const bus2 = new ModeofTransport1('Volvo', '$56', '3 hrs', '8-17-2020');
 console.log(bus2)
 
 
+
+
 /* Classes */
 class Person {
   constructor(fname, lname, dob) {
@@ -312,3 +316,86 @@ console.log(person11.getFullName())
 
 
 
+
+/* DOM - Document Object Model */
+
+// It return back the URL of the document.
+console.log(document.documentURI);
+
+console.log(document.title);
+console.log(document.getElementById("counter-inc-button"));
+console.log(window)
+
+//Single element
+console.log(document.getElementById('my-form'));
+console.log(document.querySelector('h1')); // it will select the first h1 tag only
+console.log(document.querySelector('.container'));
+
+
+//Multiple element
+document.querySelectorAll('.item'); // return nodelist and array methods can be used on it.
+
+const items = document.querySelectorAll('.items')
+items.forEach((item) => console.log(item));
+
+
+
+
+/* Events */
+let c = Number(document.querySelector('#counter-label').textContent);
+console.log(c)
+const inc_button = document.querySelector('.positive-button')
+inc_button.addEventListener('click', (e) => {
+  c += 1
+  document.querySelector('#counter-label').innerHTML = c
+  console.log(c)
+});
+const res_button = document.querySelector('.negative-button')
+res_button.addEventListener('click', (e) => {
+  c = 0
+  document.querySelector('#counter-label').innerHTML = c
+  console.log(c)
+});
+// ps: search for preventDefault and log(e) where e is the event parameter.
+
+
+// USER FORM SCRIPT
+
+// Put DOM elements into variables
+const myForm = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const msg = document.querySelector('.msg');
+const userList = document.querySelector('#users');
+
+// Listen for form submit
+myForm.addEventListener('submit', onSubmit);
+
+function onSubmit(e) {
+  e.preventDefault();
+
+  if (nameInput.value === '' || emailInput.value === '') {
+    alert('Please enter all fields');
+    msg.classList.add('error');
+    msg.innerHTML = 'Please enter all fields';
+
+    // Remove error after 3 seconds
+    setTimeout(() => msg.remove(), 3000);
+  } else {
+    // Create new list item with user
+    const li = document.createElement('li');
+
+    // Add text node with input values
+    li.appendChild(document.createTextNode(`${nameInput.value}: ${emailInput.value}`));
+
+    // Add HTML
+    // li.innerHTML = `<strong>${nameInput.value}</strong>e: ${emailInput.value}`;
+
+    // Append to ul
+    userList.appendChild(li);
+
+    // Clear fields
+    nameInput.value = '';
+    emailInput.value = '';
+  }
+}
