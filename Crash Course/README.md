@@ -1,1 +1,1 @@
-This repository contains a basic syntax guide of Javacript with appropriate commenting. I hope you all find it useful. :slightly-smiling-face:
+This repository contains a basic syntax guide of Javacript with appropriate commenting. I hope you all find it useful. :smiling-face:
